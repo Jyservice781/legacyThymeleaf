@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user | register</title>
+</head>
+<body>
+<form th:action="@{/user/register}" method="post">
+  <div>
+    <label th:for="${username}">ID : </label>
+    <input type="text" name="username" th:id="${username}">
+  </div>
+  <div>
+    <label th:for="${password}">PASSWORD : </label>
+    <input type="password" name="password" th:id="${password}">
+  </div>
+  <div>
+    <label th:for="${nickname}">nickname : </label>
+    <input type="text" name="nickname" th:id="${nickname}">
+  </div>
+  <input type="submit" value="회원가입 완료!">
+</form>
+
+</body>
+</html>

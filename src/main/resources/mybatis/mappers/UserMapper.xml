@@ -9,4 +9,9 @@
         WHERE username = #{username}
     </select>
 
+    <insert id="register" parameterType="UserDTO">
+        INSERT INTO user(username, password, nickname, role)
+        VALUE user(#{username}, #{password}, #{nickname}, 'USER')
+    </insert>
+
 </mapper>

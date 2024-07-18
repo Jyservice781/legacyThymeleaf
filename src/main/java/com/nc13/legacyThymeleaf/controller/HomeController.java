@@ -11,4 +11,11 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/board/showAll")
+    public String showBoard(){
+        return "/board/showAll";
+
+    }
+
+
 }

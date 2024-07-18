@@ -14,4 +14,8 @@ public class UserService {
     public UserDTO selectOne(String username) {
         return SESSION.selectOne(NAMESPACE + ".selectOne", username);
     }
+
+    public void insert(UserDTO userDTO){
+        SESSION.insert(NAMESPACE + ".register", userDTO);
+    }
 }
