@@ -3,7 +3,9 @@ package com.nc13.legacyThymeleaf.controller;
 import com.nc13.legacyThymeleaf.model.UserDTO;
 import com.nc13.legacyThymeleaf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,15 +16,20 @@ public class UserController {
     @Autowired
     public UserService userService;
 
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+
     @GetMapping("register")
-    private String showRegister(){
-        return "register";
+    public String showRegister(Model model){
+        model.addAttribute("userDTO", new UserDTO());
+        return "user/register";
     }
 
     @PostMapping("register")
-    private void register(UserDTO userDTO){
+    public String register(UserDTO userDTO){
+        userDTO.setPassword(encoder.encode(userDTO.getPassword()));
         userService.insert(userDTO);
+        return "redirect:/";
     }
-
 
 }

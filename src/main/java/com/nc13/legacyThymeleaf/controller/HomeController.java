@@ -5,17 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-
     @GetMapping("/")
-    private String showHome() {
+    public String showHome() {
         return "index";
     }
-
-    @GetMapping("/board/showAll")
-    public String showBoard(){
-        return "/board/showAll";
-
-    }
-
 
 }

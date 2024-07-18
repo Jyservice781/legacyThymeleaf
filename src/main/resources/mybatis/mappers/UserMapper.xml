@@ -11,7 +11,7 @@
 
     <insert id="register" parameterType="UserDTO">
         INSERT INTO user(username, password, nickname, role)
-        VALUE user(#{username}, #{password}, #{nickname}, 'USER')
+        VALUES (#{username}, #{password}, #{nickname}, 'ROLE_USER')
     </insert>
 
 </mapper>
