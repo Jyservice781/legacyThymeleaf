@@ -36,10 +36,10 @@
                 delete-cookies="JSESSIONID"
         />
 
-        <security:remember-me
+        <!-- <security:remember-me
                 token-validity-seconds="604800"
                 data-source-ref="dataSource"
-        />
+        />-->
     </security:http>
     <security:authentication-manager>
         <security:authentication-provider user-service-ref="customDetailService">
